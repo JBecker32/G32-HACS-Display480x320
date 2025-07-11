@@ -1,7 +1,7 @@
 # G32-Display 480x320
 ESPHome Projekt für ein JC3248W535 Display zur Verwendung mit einem Otto Wilde G32 Gasgrill.
 
-![PXL_20250531_101818315 MP~2](https://github.com/user-attachments/assets/67b9ae62-9454-436c-98f0-ceb2c0f3f85f)
+<img width="1729" height="1106" alt="image" src="https://github.com/user-attachments/assets/a9158e56-d6d5-44fd-928d-42a75e272495" />
 
 Dieses Projekt setzt auf einer benutzerdefinierten HACS Integration des Otto Wilde G32 Grills in Home Assistant auf (owg-g32-ha-integration von zaubii).
 Das Gerät baut eine Wifi Verbindung zum Home Assistant auf. Es liest dann einige der von der Integration bereitgestellen Daten aus HA aus und stellt sie grafisch auf dem Display dar.
