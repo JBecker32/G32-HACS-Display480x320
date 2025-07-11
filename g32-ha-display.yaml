@@ -2,9 +2,10 @@ substitutions:
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # bitte nur in diesen nächsten Zeilen Änderungen vornehmen                    #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-# Name des ESPHome Geräts (kann frei gewählt werden, keine Sonderzeichen)  
+# Name des ESPHome Geräts (kann frei gewählt werden, keine Sonderzeichen):  
   name: g32-ha-display
-  device_description: "Monitor an OW G32 grill"
+  device_description: "Monitor OW G32 grill"
+# hier den Namen des Grills (in der Otto Wilde App festgelegt) eintragen:
   g32_nickname: "elgrillo"
 # Credentials des eigenen Wifi Netzwerks einfügen:   
   wifi_ssid: "your_wifi_ssid"
