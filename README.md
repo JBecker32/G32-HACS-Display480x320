@@ -10,3 +10,6 @@ Die Hardware des JC3248W535 stellt einen Anschluß für einen externen Lithium A
 
 Zusätzlich kann im JC3248W535 ein Piezo-Summer (nur Typen ohne eingebaute Elektronik!) angeschlossen werden. Ich benutze hier nicht den mit Speaker bezweichneten 2-poligen Anschluß (dieser wird über einen eingebauten I²C Chip angesteuert und ist aufwändiger in der Benutzung) sondern die GPIOs 9 und 14 auf dem 8-poligen Steckverbinder. Der Summer wird an diversen Stellen genutzt, so z.B. bei Aufbau und Verlust der Wifi Verbindung oder auch bei Temperaturwarnungen (more to follow ...).
 
+# Hardware
+Das Display ist ein JC3248W535C von der Firma Guition mit einer Diagonale von 3,5" und 480x320 Pixeln.
+
