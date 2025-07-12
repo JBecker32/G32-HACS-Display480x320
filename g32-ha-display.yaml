@@ -266,6 +266,9 @@ lvgl:
     - id: big_font_style
       text_font: MONTSERRAT_26
     - id: arc_style
+      width: 100
+      height: 120
+      arc_opa: 60%
   on_idle:
     timeout: !lambda "return(id(display_timeout).state * 1000);"
     then:
