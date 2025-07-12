@@ -37,7 +37,7 @@ substitutions:
   ap_ssid: "G32 Display Fallback Hotspot"
   ap_password: "4Lytxfy25DNh"
 
-[⚠️ Suspicious Content] # benutzerdefinierbare Displayelemente
+# benutzerdefinierbare Displayelemente
 # Texte festlegen für Zonen und Sensoren (max. 8 Zeichen):
   Zone_Text: "Zone "       # ergibt 'Zone 1', 'Zone_ 2' usw.
   Sensor_Text: "Sensor "   # ergibt 'Sensor 1', 'Sensor_ 2' usw.
