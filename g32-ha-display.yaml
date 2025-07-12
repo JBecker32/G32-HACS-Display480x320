@@ -48,7 +48,7 @@ substitutions:
   Gas_Bar_Color: "0x00ff00"      # 0x00ff00 = Grün
   Gas_Bar_Low_Color: "0xff0000"  # 0x00ff00 = Rot
 # SOC (in %) des Akkus festlegen, unterhalb dessen das Batteriesymbol angezeigt wird:  
-  Min_SOC: "20.0"
+  Min_SOC: "25.0"
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -64,7 +64,7 @@ esphome:
 
   project:
     name: "g32hacs.display480_320"
-    version: "0.9.0"
+    version: "0.9.1"
 
 esp32:
   board: esp32-s3-devkitc-1
@@ -237,7 +237,6 @@ number:
     mode: box
 
 lvgl:
-  #full_refresh: true # not needed any longer
   draw_rounding: 8 # necessary for the axs15231 display controller
   displays: my_display
   touchscreens: my_touch
@@ -266,12 +265,7 @@ lvgl:
       text_font: MONTSERRAT_18
     - id: big_font_style
       text_font: MONTSERRAT_26
-    - id: zone_arc_style
-      width: 100
-      height: 120
-    - id: sensor_arc_style
-      width: 100
-      height: 120        
+    - id: arc_style
   on_idle:
     timeout: !lambda "return(id(display_timeout).state * 1000);"
     then:
@@ -553,7 +547,7 @@ lvgl:
             max_value: 500
             indicator:
               arc_color: ${Zone_Arc_Color}
-            styles: zone_arc_style  
+            styles: arc_style  
             value: 0
 
         - arc:
@@ -564,7 +558,7 @@ lvgl:
             max_value: 500
             indicator:
               arc_color: ${Zone_Arc_Color}
-            styles: zone_arc_style  
+            styles: arc_style  
             value: 0
 
         - arc:
@@ -575,7 +569,7 @@ lvgl:
             max_value: 500
             indicator:
               arc_color: ${Zone_Arc_Color}
-            styles: zone_arc_style  
+            styles: arc_style  
             value: 0
 
         - arc:
@@ -586,7 +580,7 @@ lvgl:
             max_value: 500
             indicator:
               arc_color: ${Zone_Arc_Color}
-            styles: zone_arc_style  
+            styles: arc_style  
             value: 0
 
         - arc:
@@ -597,7 +591,7 @@ lvgl:
             max_value: 300
             indicator:
               arc_color: ${Sensor_Arc_Color}
-            styles: sensor_arc_style  
+            styles: arc_style  
             value: 0
 
         - arc:
@@ -608,7 +602,7 @@ lvgl:
             max_value: 300
             indicator:
               arc_color: ${Sensor_Arc_Color}
-            styles: sensor_arc_style  
+            styles: arc_style  
             value: 0
 
         - arc:
@@ -619,7 +613,7 @@ lvgl:
             max_value: 300
             indicator:
               arc_color: ${Sensor_Arc_Color}
-            styles: sensor_arc_style  
+            styles: arc_style  
             value: 0
 
         - arc:
@@ -630,7 +624,7 @@ lvgl:
             max_value: 300
             indicator:
               arc_color: ${Sensor_Arc_Color}
-            styles: sensor_arc_style  
+            styles: arc_style  
             value: 0
 
 sensor:
