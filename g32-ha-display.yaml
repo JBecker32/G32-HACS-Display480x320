@@ -222,12 +222,6 @@ globals:
   - id: wifi_connected
     type: bool
     initial_value: 'false'
-  - id: g32_connected
-    type: bool
-    initial_value: 'false'
-  - id: meater_connected
-    type: bool
-    initial_value: 'false'
 
 number:
   - platform: template
