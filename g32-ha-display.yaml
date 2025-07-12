@@ -35,7 +35,20 @@ substitutions:
 #     password: "rXlU1NZRut9K"
 # ssid: und passord: einfügen:
   ap_ssid: "G32 Display Fallback Hotspot"
-  ap_password: "4Lytxfy25DNh"   
+  ap_password: "4Lytxfy25DNh"
+
+[⚠️ Suspicious Content] # benutzerdefinierbare Displayelemente
+# Texte festlegen für Zonen und Sensoren (max. 8 Zeichen):
+  Zone_Text: "Zone "       # ergibt 'Zone 1', 'Zone_ 2' usw.
+  Sensor_Text: "Sensor "   # ergibt 'Sensor 1', 'Sensor_ 2' usw.
+# Farben für die 'Temperatur-Kreise' festlegen:
+  Zone_Arc_Color: "0xff0000"     # 0xff0000 = Rot  
+  Sensor_Arc_Color: "0xffff00"   # 0xffff00 = Gelb
+# Farbe für den 'Gas-Balken' festlegen:
+  Gas_Bar_Color: "0x00ff00"      # 0x00ff00 = Grün
+  Gas_Bar_Low_Color: "0xff0000"  # 0x00ff00 = Rot
+# SOC (in %) des Akkus festlegen, unterhalb dessen das Batteriesymbol angezeigt wird:  
+  Min_SOC: "20.0"
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -50,7 +63,7 @@ esphome:
     board_build.f_cpu: 240000000L
 
   project:
-    name: "g32hacs.jc3248w535c"
+    name: "g32hacs.display480_320"
     version: "0.9.0"
 
 esp32:
@@ -278,56 +291,56 @@ lvgl:
   pages:
     - id: main_page
       widgets:
-# fixed objects (will not change during runtime)
+        # fixed objects (will not change during runtime)
         - label:
             x: 0
             y: 4 # distance down from top
             styles: main_font_style
-            text: 'T 1'
+            text: '${Zone_Text}1'
 
         - label:
             x: 120
             y: 4 # distance down from top
             styles: main_font_style
-            text: 'T 2'
+            text: '${Zone_Text}2'
 
         - label:
             x: 240
             y: 4 # distance down from top
             styles: main_font_style
-            text: 'T 3'
+            text: '${Zone_Text}3'
 
         - label:
             x: 360
             y: 4 # distance down from top
             styles: main_font_style
-            text: 'T 4'
+            text: '${Zone_Text}4'
 
         - label:
             x: 0
             y: 150 # distance down from top
             styles: main_font_style
-            text: 'Sensor 1'
+            text: '${Sensor_Text}1'
 
         - label:
             x: 120
             y: 150 # distance down from top
             styles: main_font_style
-            text: 'Sensor 2'
+            text: '${Sensor_Text}2'
 
         - label:
             id: sensor3_text
             x: 240
             y: 150 # distance down from top
             styles: main_font_style
-            text: 'Sensor 3'
+            text: '${Sensor_Text}3'
 
         - label:
             id: sensor4_text
             x: 360
             y: 150 # distance down from top
             styles: main_font_style
-            text: 'Sensor 4'
+            text: '${Sensor_Text}4'
 
         - label:
             id: meater_text
@@ -393,49 +406,38 @@ lvgl:
             text_align: LEFT
             text: 'Gas:'
 
-# variable objects (may change at runtime)
+        # variable objects (may change at runtime)
         - label:
             id: wifi_connect_label
-            x: 0 
-            y: 4
+            x: 110 
+            y: 34
             styles: main_font_style
             text_color: 0x00ff00
-            text_align: LEFT
+            text_align: CENTER
             width: 20
-            text: "\uF1EB"
+            text: "\uF1EB" # WIFI symbol
             hidden: true
 
         - label:
             id: battery_empty_label
             x: 220 
-            y: 4
+            y: 34
             styles: main_font_style
             text_color: 0xff0000
             text_align: CENTER
             width: 40
-            text: "\uF243"
+            text: "\uF243" # 25% battery label 
             hidden: true
 
         - label:
-            id: g32_connect_label
-            x: 459 
-            y: 4
-            styles: main_font_style
-            text_color: 0x00ff00
-            text_align: LEFT
-            width: 20
-            text: "\uF293"
-            hidden: true
-
-        - label:
-            id: meater_connect_label
+            id: g32_warning_label
             x: 350 
-            y: 180
+            y: 34
             styles: main_font_style
             text_color: 0x00ff00
             text_align: CENTER
             width: 20
-            text: "\uF293"
+            text: "\uF071" # invertiertes Ausrugungszeichen
             hidden: true
 
         - label:
@@ -545,7 +547,7 @@ lvgl:
             max_value: 100
             bg_color: 0xffffff
             indicator:
-              bg_color: 0x00ff00
+              bg_color: ${Gas_Bar_Color}
             value: 0
             hidden: true
 
@@ -556,7 +558,7 @@ lvgl:
             min_value: 1
             max_value: 500
             indicator:
-              arc_color: 0xff0000
+              arc_color: ${Zone_Arc_Color}
             styles: zone_arc_style  
             value: 0
 
@@ -567,7 +569,7 @@ lvgl:
             min_value: 1
             max_value: 500
             indicator:
-              arc_color: 0xff0000
+              arc_color: ${Zone_Arc_Color}
             styles: zone_arc_style  
             value: 0
 
@@ -578,7 +580,7 @@ lvgl:
             min_value: 1
             max_value: 500
             indicator:
-              arc_color: 0xff0000
+              arc_color: ${Zone_Arc_Color}
             styles: zone_arc_style  
             value: 0
 
@@ -589,7 +591,7 @@ lvgl:
             min_value: 1
             max_value: 500
             indicator:
-              arc_color: 0xff0000
+              arc_color: ${Zone_Arc_Color}
             styles: zone_arc_style  
             value: 0
 
@@ -600,7 +602,7 @@ lvgl:
             min_value: 1
             max_value: 300
             indicator:
-              arc_color: 0xffff00
+              arc_color: ${Sensor_Arc_Color}
             styles: sensor_arc_style  
             value: 0
 
@@ -611,7 +613,7 @@ lvgl:
             min_value: 1
             max_value: 300
             indicator:
-              arc_color: 0xffff00
+              arc_color: ${Sensor_Arc_Color}
             styles: sensor_arc_style  
             value: 0
 
@@ -622,7 +624,7 @@ lvgl:
             min_value: 1
             max_value: 300
             indicator:
-              arc_color: 0xffff00
+              arc_color: ${Sensor_Arc_Color}
             styles: sensor_arc_style  
             value: 0
 
@@ -633,33 +635,9 @@ lvgl:
             min_value: 1
             max_value: 300
             indicator:
-              arc_color: 0xffff00
+              arc_color: ${Sensor_Arc_Color}
             styles: sensor_arc_style  
             value: 0
-
-        - arc:
-            id: meater1_arc
-            x: 250 
-            y: 176
-            min_value: 1
-            max_value: 100
-            indicator:
-              arc_color: 0xffff00
-            styles: sensor_arc_style  
-            value: 0
-            hidden: true
-
-        - arc:
-            id: meater2_arc
-            x: 370
-            y: 176
-            min_value: 1
-            max_value: 275
-            indicator:
-              arc_color: 0xff0000
-            styles: sensor_arc_style  
-            value: 0
-            hidden: true
 
 sensor:
   - platform: adc
@@ -695,10 +673,10 @@ sensor:
           max_value: 100.0
     update_interval: 4s
     on_value_range:
-      - below: 20.0
+      - below: ${Min_SOC}
         then:
           - lvgl.widget.show: battery_empty_label
-      - above: 20.0
+      - above: ${Min_SOC}
         then: 
           - lvgl.widget.hide: battery_empty_label
 
@@ -902,3 +880,19 @@ sensor:
             return (x);
             };      
 
+binary_sensor:
+  - platform: homeassistant
+    entity_id: 'binary_sensor.${g32_nickname}_gas_low'
+    id: g32_gas_low
+    name: "G32 Gasbuddy Füllstand niedrig"
+    on_state:
+      then:
+      - lvgl.bar.update:
+          id: gas_percent_bar
+          indicator:
+            bg_color: !lambda |-
+              if(x) {
+              return lv_color_hex(${Gas_Bar_Low_Color});
+              } else {
+              return lv_color_hex(${Gas_Bar_Color});
+              };      
