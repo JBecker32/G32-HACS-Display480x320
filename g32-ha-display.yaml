@@ -331,15 +331,6 @@ lvgl:
             text: '${Sensor_Text}4'
 
         - label:
-            id: meater_text
-            x: 240
-            y: 150 # distance down from top
-            styles: main_font_style
-            width: 240
-            text: 'KT   Meater   GT'
-            hidden: true
-
-        - label:
             x: 0
             y: 104 # distance down from top
             styles: main_font_style
@@ -502,22 +493,6 @@ lvgl:
 
         - label:
             id: sensor4_label
-            x: 360
-            y: 210 # distance down from top
-            styles: big_font_style
-            text: '---'
-            hidden: true
-
-        - label:
-            id: meater1_label
-            x: 240
-            y: 210 # distance down from top
-            styles: big_font_style
-            text: '---'
-            hidden: true
-
-        - label:
-            id: meater2_label
             x: 360
             y: 210 # distance down from top
             styles: big_font_style
