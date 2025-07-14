@@ -39,14 +39,14 @@ substitutions:
 
 # benutzerdefinierbare Displayelemente
 # Texte festlegen für Zonen und Sensoren (max. 8 Zeichen):
-  Zone_Text: "Zone "       # ergibt 'Zone 1', 'Zone_ 2' usw.
-  Sensor_Text: "Sensor "   # ergibt 'Sensor 1', 'Sensor_ 2' usw.
+  Zone_Text:   "Zone "   # ergibt 'Zone 1', 'Zone 2' usw.
+  Sensor_Text: "Sensor " # ergibt 'Sensor 1', 'Sensor 2' usw.
 # Farben für die 'Temperatur-Kreise' festlegen:
-  Zone_Arc_Color: "0xff0000"     # 0xff0000 = Rot  
-  Sensor_Arc_Color: "0xffff00"   # 0xffff00 = Gelb
+  Zone_Arc_Color:    "0xff0000" # 0xff0000 = Rot  
+  Sensor_Arc_Color:  "0xffff00" # 0xffff00 = Gelb
 # Farbe für den 'Gas-Balken' festlegen:
-  Gas_Bar_Color: "0x00ff00"      # 0x00ff00 = Grün
-  Gas_Bar_Low_Color: "0xff0000"  # 0x00ff00 = Rot
+  Gas_Bar_Color:     "0x00ff00" # 0x00ff00 = Grün
+  Gas_Bar_Low_Color: "0xff0000" # 0x00ff00 = Rot
 # SOC (in %) des Akkus festlegen, unterhalb dessen das Batteriesymbol angezeigt wird:  
   Min_SOC: "25.0"
 
@@ -56,6 +56,7 @@ substitutions:
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 esphome:
   name: ${name}
+  build_path: /tmp/esphome_build
   platformio_options:
     upload_speed: 921600
     board_build.flash_mode: dio
@@ -141,7 +142,6 @@ display:
     cs_pin: 
       number: 45
       ignore_strapping_warning: true
-#    rotation: 0  #  0 for portrait
     rotation: 90 # 90 for landscape
     auto_clear_enabled: false
 
@@ -180,6 +180,8 @@ touchscreen:
           condition: lvgl.is_paused
           then:
             - logger.log: "Display is resuming"
+            - lvgl.page.show:
+                id: main_page
             - lvgl.resume:
             - lvgl.widget.redraw:
             - light.turn_on: backlight          
