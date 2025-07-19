@@ -7,9 +7,11 @@ substitutions:
   device_description: "Monitor OW G32 grill"
 # hier den Namen des Grills (in der Otto Wilde App festgelegt) eintragen:
   g32_nickname: "my_g32"
-# Credentials des eigenen Wifi Netzwerks einfügen:   
+# Credentials des eigenen Wifi Netzwerks einfügen (direkt hier oder aus der 'secrets.yaml'):   
   wifi_ssid: "your_wifi_ssid"
   wifi_password: "your_wifi_password"
+#  wifi_ssid: !secret wifi_ssid
+#  wifi_password: !secret wifi_password
 
 # hier die Daten aus dem neu erstellten ESPHome Gerät einfügen. Beispiel:
 # Enable Home Assistant API
