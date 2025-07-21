@@ -1,6 +1,6 @@
 # G32-Display 480x320 (JC3248W535C)
 ESPHome Projekt für ein JC3248W535 Display zur Verwendung mit einem Otto Wilde G32 Gasgrill.
-Diese Variante der Firmware zeigt die Daten grafisch mit Hilfe von 'Arcs' und 'Bars' (also Bögen und Balken) in verschiedenen Farben an. Alternativ gibt es noch eine Variante in Grautönen und nur mit Zahlen anstatt Grafikelementen [owg-g32-ha-jc3248w535-numbers](https://github.com/JBecker32/owg-g32-ha-jc3248w535-numbers).  
+Diese Variante der Firmware zeigt die Daten grafisch mit Hilfe von 'Arcs' und 'Bars' (also Bögen und Balken) in verschiedenen Farben an. Alternativ gibt es noch eine Variante in Grautönen und nur mit Zahlen anstatt Grafikelementen: [owg-g32-ha-jc3248w535-numbers](https://github.com/JBecker32/owg-g32-ha-jc3248w535-numbers).  
 
 <img width="1729" height="1106" alt="image" src="https://github.com/user-attachments/assets/a9158e56-d6d5-44fd-928d-42a75e272495" />
 
