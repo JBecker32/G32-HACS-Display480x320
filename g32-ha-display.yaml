@@ -5,10 +5,12 @@ substitutions:
 # Name des ESPHome Geräts (kann frei gewählt werden, keine Sonderzeichen)
   name: g32-display
   device_description: "Monitor an OW G32 grill"
-  g32_nickname: "elgrillo"
-# Credentials des eigenen Wifi Netzwerks einfügen:
-  wifi_ssid: "Finkenbusch 43"
-  wifi_password: "12345678"
+  g32_nickname: "my_g32"
+# Credentials des eigenen Wifi Netzwerks einfügen (direkt hier oder aus der 'secrets.yaml'):   
+  wifi_ssid: "your_wifi_ssid"
+  wifi_password: "your_wifi_password"
+#  wifi_ssid: !secret wifi_ssid
+#  wifi_password: !secret wifi_password
 
 # hier die Daten aus dem neu erstellten ESPHome Gerät einfügen. Beispiel:
 # Enable Home Assistant API
@@ -16,13 +18,13 @@ substitutions:
 #   encryption:
 #     key: "OZNMBo2xusQ+BIzO1pfIQepp72VCfBzCWO/pSttPCQg="
 # den dort angezeigten key einfügen:
-  api_encryption_key: "E1fyywUUE1DWzu0OzhDkyc4yAnfGwyEfsVNvhytrU6k="
+  api_encryption_key: "E1fyywUUE1DWzu0OzhDkzc4yAnfGwyEfsVNvhytrU6k="
 #
 # ota:
 #   - platform: esphome
 #     password: "7fdf9f656d36180bfba92d596c9e7db3"
-# das angezeiget password einfügen:
-  ota_password: "39825aefe87449c0928189f9fb2e701a"
+# das dort angezeigte password einfügen:  
+  ota_password: "39825aefe87449c0928289f9fb2e701a"
 #
 # wifi:
 #   ssid: !secret wifi_ssid
@@ -32,7 +34,7 @@ substitutions:
 #   ap:
 #     ssid: "Hztht Fallback Hotspot"
 #     password: "rXlU1NZRut9K"
-# ssid: und passord: einfügen:
+# ssid: und passord: für den Fallback Hotspot einfügen:
   ap_ssid: "G32 Display Fallback Hotspot"
   ap_password: "4Lytxfy25DNh"
 
