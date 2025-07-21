@@ -8,7 +8,7 @@ substitutions:
   g32_nickname: "elgrillo"
 # Credentials des eigenen Wifi Netzwerks einfügen:
   wifi_ssid: "Finkenbusch 43"
-  wifi_password: "1234567890abcdef9876543210"
+  wifi_password: "12345678"
 
 # hier die Daten aus dem neu erstellten ESPHome Gerät einfügen. Beispiel:
 # Enable Home Assistant API
